@@ -30,14 +30,14 @@ const options =
             file: './dist/umd/index.js',
             format: 'umd',
             sourcemap: true,
-            name: "MYLIB",
+            name: "MULTIVECTORS",
         },
         {
             banner,
             file: './dist/umd/index.min.js',
             format: 'umd',
             sourcemap: true,
-            name: "MYLIB",
+            name: "MULTIVECTORS",
             plugins: [terser()]
         },
         {
@@ -45,7 +45,7 @@ const options =
             file: pkg.main,
             format: 'cjs',
             sourcemap: true,
-            name: 'MYLIB'
+            name: 'MULTIVECTORS'
         },
         {
             banner,
@@ -85,7 +85,7 @@ const options =
 export default [
     options,
     {
-        input: 'dist/esm/src/index.d.ts',
+        input: 'dist/esm/index.d.ts',
         output: [{ file: pkg.types, format: "esm" }],
         plugins: [dts()],
     }
