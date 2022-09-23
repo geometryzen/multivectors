@@ -19,6 +19,79 @@
   <h1>Geometric Algebra Multivectors For Numeric Computing</h1>
 </a>
 
+<a href="#overview" id="overview" style="color: inherit; text-decoration: none;">
+  <h2>Overview</h2>
+</a>
+<p>A collection of multivectors for numeric computation. A multivector is a generalization of vector and scalar quantities that is closed under multiplication.</p>
+<p>The following geometric quantities are supported.</p>
+<table>
+    <thead>
+        <tr>
+            <td>Class</td>
+            <td>p</td>
+            <td>q</td>
+            <td>Metric</td>
+            <td>Coordinates</td>
+            <td>Basis Vectors</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Geometric1</td>
+            <td>1</td>
+            <td>0</td>
+            <td>Euclidean</td>
+            <td>a,x,x or b</td>
+            <td>e1</td>
+        </tr>
+        <tr>
+            <td>Geometric2</td>
+            <td>2</td>
+            <td>0</td>
+            <td>Euclidean</td>
+            <td>a,x,y,xy or b</td>
+            <td>e1,e2</td>
+        </tr>
+        <tr>
+            <td>Geometric3</td>
+            <td>3</td>
+            <td>0</td>
+            <td>Euclidean</td>
+            <td>a,x,y,z,xy,yz,zx,xyz or b</td>
+            <td>e1,e2,e3</td>
+        </tr>
+        <tr>
+            <td>Spacetime1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>Minkowski</td>
+            <td>a,t,x,tx or b</td>
+            <td>e0,e1</td>
+        </tr>
+        <tr>
+            <td>Spacetime2</td>
+            <td>2</td>
+            <td>1</td>
+            <td>Minkowski</td>
+            <td>a,t,x,y,tx,ty,xy,txy or b</td>
+            <td>e0,e1,e2</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>p is the number of space dimensions,  q is the number of time dimensions.</p>
+<p>All types have:</p>
+<ul>
+<li>Cartesian coordinates</li>
+<li>static zero (0) constant.</li>
+<li>static one (1) constant.</li>
+<li>static basis vector constants e.g. e1, e2, e3</li>
+<li>Unit of measure or Dimensionless</li>
+<li>static S.I. Unit constants e.g. kilogram, meter, second, ampere, ...</li>
+<li>Lockable to support immutability or mutation.</li>
+<li>Dunder methods for operator overloading (if supported by execution environment).</li>
+</ul>
+
 <a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
   <h2>Documentation</h2>
 </a>
@@ -34,6 +107,19 @@
 <p><a href="https://www.npmjs.com/package/@geometryzen/multivectors">https://www.npmjs.com/package/@geometryzen/multivectors</a></p>
 <pre><code class="language-typescript"><span class="hl-0">import</span><span class="hl-1"> {</span><span class="hl-2">Geometric3</span><span class="hl-1">} </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;@geometryzen/multivectors&#39;</span><br/><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">e1</span><span class="hl-1"> = </span><span class="hl-2">Geometric3</span><span class="hl-1">.</span><span class="hl-2">e1</span>
 </code></pre>
+
+<a href="#locking" id="locking" style="color: inherit; text-decoration: none;">
+  <h3>Locking</h3>
+</a>
+<p>The ability to lock a multivector provides both unsurprising behavior and efficiency. In general, mutability is efficient because it can be used to avoid the creation of temporary objects that must be garbage collected. On the other hand, immutability avoids surprising changes in variables, is useful for avoiding the need to explicitly clone mutable objects, and provides support for operator overloading. </p>
+<ul>
+<li>Locked multivectors are not mutable; their methods create new instances which are also locked.</li>
+<li>Unlocked multivector methods may modify the target.</li>
+<li>All static constants are locked.</li>
+<li>Multivectors may be cloned to create unlocked instances.</li>
+<li>Locking returns a token that may be used to unlock later.</li>
+<li>Dunder methods for operator overloading never change the target and create new locked instances.</li>
+</ul>
 
 <a href="#distribution" id="distribution" style="color: inherit; text-decoration: none;">
   <h2>Distribution</h2>
