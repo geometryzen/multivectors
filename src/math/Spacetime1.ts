@@ -1,9 +1,6 @@
 import { readOnly } from "../i18n/readOnly";
 import { AbstractMeasure } from "./AbstractMeasure";
 import { gauss } from "./gauss";
-import { GeometricNumber } from "./GeometricNumber";
-import { GeometricOperators } from "./GeometricOperators";
-import { GradeMasked } from "./GradeMasked";
 import { QQ } from "./QQ";
 import { stringFromCoordinates } from "./stringFromCoordinates";
 import { Unit } from "./Unit";
@@ -38,19 +35,19 @@ const coordinates = function (m: GeometricM11): [a: number, t: number, x: number
     return coords;
 };
 
-interface Vector {
+export interface VectorM11 {
     t: number;
     x: number;
     uom?: Unit;
 }
 
-interface Spinor {
+export interface SpinorM11 {
     a: number;
     b: number;
     uom?: Unit;
 }
 
-interface GeometricM11 extends Vector, Spinor {
+interface GeometricM11 extends VectorM11, SpinorM11 {
     uom?: Unit;
 }
 
@@ -67,7 +64,7 @@ const BASIS_LABELS_LaTeX: ['1', 'e_{0}', 'e_{1}', 'I'] = ["1", "e_{0}", "e_{1}",
 /**
  *
  */
-export class Spacetime1 extends AbstractMeasure implements GradeMasked, GeometricM11, GeometricNumber<Spacetime1, Spacetime1, Spinor, Vector, number>, GeometricOperators<Spacetime1> {
+export class Spacetime1 extends AbstractMeasure {
     /**
      * The scalar value 0.
      * 
@@ -272,7 +269,7 @@ export class Spacetime1 extends AbstractMeasure implements GradeMasked, Geometri
      * @param α 
      * @returns 
      */
-    addVector(v: Vector, α = 1): Spacetime1 {
+    addVector(v: VectorM11, α = 1): Spacetime1 {
         if (this.isLocked()) {
             return this.clone().addVector(v, α).permlock();
         }
@@ -342,7 +339,7 @@ export class Spacetime1 extends AbstractMeasure implements GradeMasked, Geometri
             return this;
         }
     }
-    divByVector(v: Vector): Spacetime1 {
+    divByVector(v: VectorM11): Spacetime1 {
         if (this.isLocked()) {
             return this.clone().divByVector(v).permlock();
         }
@@ -564,7 +561,7 @@ export class Spacetime1 extends AbstractMeasure implements GradeMasked, Geometri
             return this;
         }
     }
-    mulByVector(v: Vector): Spacetime1 {
+    mulByVector(v: VectorM11): Spacetime1 {
         if (this.isLocked()) {
             return this.clone().mulByVector(v).permlock();
         }
@@ -638,7 +635,7 @@ export class Spacetime1 extends AbstractMeasure implements GradeMasked, Geometri
             return this;
         }
     }
-    reflect(n: Vector): Spacetime1 {
+    reflect(n: VectorM11): Spacetime1 {
         if (this.isLocked()) {
             return this.clone().reflect(n).permlock();
         }
@@ -666,7 +663,7 @@ export class Spacetime1 extends AbstractMeasure implements GradeMasked, Geometri
             return this;
         }
     }
-    rotate(spinor: Spinor): Spacetime1 {
+    rotate(spinor: SpinorM11): Spacetime1 {
         if (this.isLocked()) {
             return this.clone().rotate(spinor).permlock();
         }
@@ -805,7 +802,7 @@ export class Spacetime1 extends AbstractMeasure implements GradeMasked, Geometri
      * @param α 
      * @returns 
      */
-    subVector(v: Vector, α = 1): Spacetime1 {
+    subVector(v: VectorM11, α = 1): Spacetime1 {
         if (this.isLocked()) {
             return this.clone().subVector(v, α).permlock();
         }

@@ -7,9 +7,6 @@ import { arraysEQ4 } from "./arraysEQ";
 import { BivectorE2 as Bivector } from "./BivectorE2";
 import { gauss } from "./gauss";
 import { GeometricE2 as Geometric } from "./GeometricE2";
-import { GeometricNumber } from './GeometricNumber';
-import { GeometricOperators } from './GeometricOperators';
-import { GradeMasked } from "./GradeMasked";
 import { isZeroGeometricE2 as isZeroGeometric } from "./isZeroGeometricE2";
 import { isZeroVectorE2 as isZeroVector } from "./isZeroVectorE2";
 import { QQ } from "./QQ";
@@ -144,7 +141,7 @@ function lock(m: Geometric2): Geometric2 {
 /**
  * A mutable and lockable multivector in 2D with a Euclidean metric and optional unit of measure.
  */
-export class Geometric2 extends AbstractMeasure implements GradeMasked, Geometric, GeometricNumber<Geometric2, Geometric2, Spinor, Vector, number>, GeometricOperators<Geometric2> {
+export class Geometric2 extends AbstractMeasure {
 
     /**
      * Creates a grade 0 (scalar) multivector with value `alpha * uom`.

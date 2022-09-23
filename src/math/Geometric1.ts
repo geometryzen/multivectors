@@ -3,9 +3,6 @@ import { AbstractMeasure } from "./AbstractMeasure";
 import { arraysEQ2 } from "./arraysEQ";
 import { gauss } from "./gauss";
 import { GeometricE1 as Geometric } from "./GeometricE1";
-import { GeometricNumber } from "./GeometricNumber";
-import { GeometricOperators } from "./GeometricOperators";
-import { GradeMasked } from "./GradeMasked";
 import { SpinorE1 as Spinor } from "./SpinorE1";
 import { stringFromCoordinates } from "./stringFromCoordinates";
 import { Unit } from "./Unit";
@@ -95,7 +92,7 @@ BASIS_LABELS_LaTeX[COORD_X] = 'e_{1}';
 /**
  * A mutable and lockable multivector in 1D with a Euclidean metric and optional unit of measure.
  */
-export class Geometric1 extends AbstractMeasure implements GradeMasked, Geometric, GeometricNumber<Geometric1, Geometric1, Spinor, Vector, number>, GeometricOperators<Geometric1> {
+export class Geometric1 extends AbstractMeasure {
     static scalar(a: number, uom?: Unit): Geometric1 {
         return new Geometric1([a, 0], uom);
     }

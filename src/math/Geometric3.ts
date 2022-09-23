@@ -7,9 +7,6 @@ import { dotVectorE3 as dotVector } from './dotVectorE3';
 import extG3 from './extG3';
 import { gauss } from './gauss';
 import { GeometricE3 } from './GeometricE3';
-import { GeometricNumber } from './GeometricNumber';
-import { GeometricOperators } from './GeometricOperators';
-import { GradeMasked } from './GradeMasked';
 import isScalarG3 from './isScalarG3';
 import isVectorG3 from './isVectorG3';
 import { isZeroGeometricE3 } from './isZeroGeometricE3';
@@ -24,11 +21,11 @@ import rcoG3 from './rcoG3';
 import rotorFromDirections from './rotorFromDirectionsE3';
 import { Scalar } from './Scalar';
 import scpG3 from './scpG3';
-import { SpinorE3 as Spinor, SpinorE3 } from './SpinorE3';
+import { SpinorE3 } from './SpinorE3';
 import { squaredNormG3 } from './squaredNormG3';
 import { stringFromCoordinates } from './stringFromCoordinates';
 import { Unit } from './Unit';
-import { VectorE3 as Vector, VectorE3 } from './VectorE3';
+import { VectorE3 } from './VectorE3';
 import { wedgeXY } from './wedgeXY';
 import { wedgeYZ } from './wedgeYZ';
 import { wedgeZX } from './wedgeZX';
@@ -213,7 +210,7 @@ const cosines: number[] = [];
 /**
  * A mutable and lockable multivector in 3D with a Euclidean metric and optional unit of measure.
  */
-export class Geometric3 extends AbstractMeasure implements GradeMasked, GeometricE3, GeometricNumber<Geometric3, Geometric3, Spinor, Vector, number>, GeometricOperators<Geometric3> {
+export class Geometric3 extends AbstractMeasure {
 
     /**
      * 

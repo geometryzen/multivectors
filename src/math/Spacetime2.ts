@@ -2,9 +2,6 @@ import { readOnly } from "../i18n/readOnly";
 import { AbstractMeasure } from "./AbstractMeasure";
 import { gauss } from "./gauss";
 import { GeometricM21 } from "./GeometricM21";
-import { GeometricNumber } from "./GeometricNumber";
-import { GeometricOperators } from "./GeometricOperators";
-import { GradeMasked } from "./GradeMasked";
 import { QQ } from "./QQ";
 import { SpinorM21 as Spinor } from './SpinorM21';
 import { stringFromCoordinates } from "./stringFromCoordinates";
@@ -74,7 +71,7 @@ const BASIS_LABELS_LaTeX: ['1', 'e_{0}', 'e_{1}', 'e_{01}', 'e_{2}', 'e_{02}', '
 /**
  *
  */
-export class Spacetime2 extends AbstractMeasure implements GradeMasked, GeometricM21, GeometricNumber<Spacetime2, Spacetime2, Spinor, Vector, number>, GeometricOperators<Spacetime2> {
+export class Spacetime2 extends AbstractMeasure {
     static readonly zero = Spacetime2.scalar(0).permlock();
     static readonly one = Spacetime2.scalar(1).permlock();
     static readonly e0 = Spacetime2.vector(1, 0, 0).permlock();
