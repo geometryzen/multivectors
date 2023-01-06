@@ -10,7 +10,6 @@ const UNLOCKED = -1 * Math.random();
 
 /**
  * Abstract base class providing a unit of measure and locking capabilities.
- * @hidden
  */
 export abstract class AbstractMeasure {
     private $unit: Unit;
