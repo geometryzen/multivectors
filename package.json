@@ -1,6 +1,6 @@
 {
     "name": "@geometryzen/multivectors",
-    "version": "0.9.5",
+    "version": "0.9.6",
     "description": "Geometric Algebra Multivectors For Numeric Computing",
     "exports": {
         ".": {
@@ -43,7 +43,7 @@
         "access": "public"
     },
     "scripts": {
-        "build": "rollup -c",
+        "build": "npm run clean && rollup -c",
         "check": "npx package-check",
         "clean": "rm -rf coverage && rm -rf dist && rm -rf docs && rm -rf types",
         "coverage": "npm run test -- --coverage",
@@ -53,7 +53,7 @@
         "lint": "eslint . --ext .ts",
         "pages": "npm run docs:typedoc && gh-pages -d docs",
         "pretest": "npm run build",
-        "prepublishOnly": "npm run build && npm run test && npm run lint && npm run pages",
+        "prepublishOnly": "npm run build && npm run test && npm run lint && npm run pages && npm run check",
         "test": "jest"
     },
     "repository": {

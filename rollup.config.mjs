@@ -85,7 +85,7 @@ const options =
 export default [
     options,
     {
-        input: 'dist/esm/index.d.ts',
+        input: 'dist/esm/types/index.d.ts',
         output: [{ file: pkg.types, format: "esm" }],
         plugins: [dts()],
     }
