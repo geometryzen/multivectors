@@ -8,6 +8,7 @@ export { Geometric3 } from './math/Geometric3';
 export { GeometricE1 } from './math/GeometricE1';
 export { GeometricE2 } from './math/GeometricE2';
 export { GeometricE3 } from './math/GeometricE3';
+export { Matrix1 } from './math/Matrix1';
 export { Matrix3 } from './math/Matrix3';
 export { MatrixLike } from './math/MatrixLike';
 export { QQ } from './math/QQ';
