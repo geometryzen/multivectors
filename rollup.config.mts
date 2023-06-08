@@ -4,6 +4,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
+import { InputPluginOption, RollupOptions } from 'rollup';
 import dts from 'rollup-plugin-dts';
 import external from 'rollup-plugin-peer-deps-external';
 import pkg from './package.json' assert { type: 'json' };
@@ -18,12 +19,9 @@ const banner = `/**
  */
 `.trim();
 
-/**
- * @type {import('rollup').RollupOptions}
- */
-const options =
+const options: RollupOptions =
 {
-    input: 'src/index.ts',
+    input: './src/index.ts',
     output: [
         {
             banner,
@@ -75,7 +73,7 @@ const options =
         }
     ],
     plugins: [
-        external(),
+        external() as unknown as InputPluginOption,
         resolve(),
         commonjs(),
         typescript({ tsconfig: './tsconfig.json' })
@@ -85,7 +83,7 @@ const options =
 export default [
     options,
     {
-        input: 'dist/esm/types/index.d.ts',
+        input: './dist/esm/types/src/index.d.ts',
         output: [{ file: pkg.types, format: "esm" }],
         plugins: [dts()],
     }

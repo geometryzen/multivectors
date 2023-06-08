@@ -43,7 +43,7 @@
         "access": "public"
     },
     "scripts": {
-        "build": "npm run clean && rollup -c",
+        "build": "npm run clean && rollup --config rollup.config.mts --configPlugin @rollup/plugin-typescript",
         "check": "npx package-check",
         "clean": "rm -rf coverage && rm -rf dist && rm -rf docs && rm -rf types",
         "coverage": "npm run test -- --coverage",
@@ -73,6 +73,7 @@
         "@rollup/plugin-typescript": "^11.1.1",
         "@skypack/package-check": "^0.2.2",
         "@types/jest": "^29.5.2",
+        "@types/rollup-plugin-peer-deps-external": "^2.2.1",
         "@typescript-eslint/eslint-plugin": "^5.59.9",
         "@typescript-eslint/parser": "^5.59.9",
         "eslint": "^8.42.0",
