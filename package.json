@@ -6,7 +6,8 @@
         ".": {
             "types": "./dist/index.d.ts",
             "system": "./dist/system/index.min.js",
-            "default": "./dist/esm/index.min.js"
+            "import": "./dist/esm/index.min.js",
+            "require": "./dist/cjs/index.js"
         }
     },
     "browser": "./dist/umd/index.min.js",
@@ -54,6 +55,7 @@
         "pages": "npm run docs:typedoc && gh-pages -d docs",
         "pretest": "npm run build",
         "prepublishOnly": "npm run build && npm run test && npm run lint && npm run pages && npm run check",
+        "release": "release-it",
         "test": "jest"
     },
     "repository": {
@@ -80,6 +82,7 @@
         "gh-pages": "^5.0.0",
         "jest": "^29.5.0",
         "open-cli": "^7.2.0",
+        "release-it": "^15.11.0",
         "rollup-plugin-dts": "^5.3.0",
         "rollup-plugin-peer-deps-external": "^2.2.4",
         "ts-jest": "^29.1.0",
