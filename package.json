@@ -6,13 +6,14 @@
         ".": {
             "types": "./dist/index.d.ts",
             "system": "./dist/system/index.min.js",
-            "import": "./dist/esm/index.min.mjs",
-            "require": "./dist/cjs/index.js"
+            "import": "./dist/esm/index.min.js",
+            "require": "./dist/cjs/index.js",
+            "default": "./dist/esm/index.min.js"
         }
     },
     "browser": "./dist/umd/index.min.js",
     "main": "./dist/cjs/index.js",
-    "module": "./dist/esm/index.min.mjs",
+    "module": "./dist/esm/index.min.js",
     "types": "./dist/index.d.ts",
     "files": [
         "LICENSE",

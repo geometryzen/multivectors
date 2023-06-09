@@ -47,13 +47,13 @@ const options: RollupOptions =
         },
         {
             banner,
-            file: './dist/esm/index.mjs',
+            file: './dist/esm/index.js',
             format: 'esm',
             sourcemap: true
         },
         {
             banner,
-            file: './dist/esm/index.min.mjs',
+            file: './dist/esm/index.min.js',
             format: 'esm',
             sourcemap: true,
             plugins: [terser()]
