@@ -1,6 +1,6 @@
 {
     "name": "@geometryzen/multivectors",
-    "version": "0.9.10",
+    "version": "0.9.11",
     "description": "Geometric Algebra Multivectors For Numeric Computing",
     "exports": {
         ".": {
